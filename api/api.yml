@@ -1,0 +1,56 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Geolocation Api  Mohamed Abdel Mohaimen -> mohamedveron23@gmail.com
+components:
+  schemas:
+
+    GeoLocation:
+      type: object
+      properties:
+        ipAddress:
+          type: string
+        countryCode:
+          type: string
+        country:
+          type: string
+        city:
+          type: string
+        latitude:
+          type: number
+          example: 234.2311111
+        longitude:
+          type: number
+          example: -234.2223111
+
+    GeoLocationResponseData:
+      required:
+        - locations
+      properties:
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/GeoLocation'
+
+paths:
+  /locations:
+    post:
+      summary: Get all locations by id address
+      operationId: getLocations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              ipAddress:
+                type: string
+      responses:
+        '200':
+          description: locations list returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeoLocationResponseData'
+        '400':
+          description: Bad request
+        '500':
+          description: Internal server error
