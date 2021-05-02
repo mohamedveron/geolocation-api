@@ -1,4 +1,4 @@
-# geolocation-api
+# geolocation-api -- Find-Hotel-task
 This component is developed using go-chi https://github.com/go-chi/chi router and oapi-codegen https://github.com/deepmap/oapi-codegen to generate apis interface and using go mod for dependancies management.
 
 # Use api/api.yml file in the swagger ui to see the description of the rest api design
